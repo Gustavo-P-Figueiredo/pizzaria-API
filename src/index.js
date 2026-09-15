@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 
 //Importa rotas que vão executar funcionalidades
 //import authRoutes from './routes/authRoutes.js';
-//import clienteRoutes from './routes/clienteRoutes.js'
+import clienteRoutes from './routes/clienteRoutes.js'
 //import pedidoRoutes from './routes/pedidoRoutes.js'
 //import produtoRoutes from './routes/produtoRoutes.js'
 
@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 //Rotas para API
 const apiPrefix = '/api';
 
-// app.use(`${apiPrefix}/clientes`, clienteRoutes);
+ app.use(`${apiPrefix}/clientes`, clienteRoutes);
 // app.use(`${apiPrefix}/login`, authRoutes);
 // app.use(`${apiPrefix}/produtos`, produtoRoutes);
 // app.use(`${apiPrefix}/pedidos`, pedidoRoutes);

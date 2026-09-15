@@ -17,18 +17,18 @@ export const findAll = async (cpf, nome, email) => {
         values.push(cpf);
     }
 
-    if (nome){
-        conditions.push('LOWER(nome) LIKE ?');
-        values.push(`%${nome.toLowerCase()}%`);
+      if(nome){
+        conditions.push('LOWER(nome) LIKE ?')
+        values.push(`%${nome.toLowerCase()}%`)
     }
 
     if (email){
-        conditions.push('email = ?');
+        conditions.push('email like ?');
         values.push(`%${email.toLowerCase()}%`);
     }
 
     if (conditions.length > 0){
-        sql += 'WHERE' + conditions.join('AND');
+        sql += ' WHERE ' + conditions.join('AND');
     }
 
     const [rows] = await db.query(sql, values)
