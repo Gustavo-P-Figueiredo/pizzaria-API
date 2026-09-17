@@ -9,14 +9,14 @@ import { fileURLToPath } from 'url';
 //Importa rotas que vão executar funcionalidades
 //import authRoutes from './routes/authRoutes.js';
 import clienteRoutes from './routes/clienteRoutes.js'
-//import pedidoRoutes from './routes/pedidoRoutes.js'
-//import produtoRoutes from './routes/produtoRoutes.js'
+import pedidoRoutes from './routes/pedidoRoutes.js'
+import produtoRoutes from './routes/produtoRoutes.js'
 
 //Inicializa o servidor com uma variavel com a funcionalidade do express
 const app = express();
 const porta = process.env.PORT
 app.listen(porta, () => {
-  console.log(`Server is running on http://localhost:${porta}`)
+  console.log(`Server is running on http://localhost:${porta}/api`)
 });
 
 //CONFIGURAÇÕES
@@ -49,8 +49,8 @@ const apiPrefix = '/api';
 
  app.use(`${apiPrefix}/clientes`, clienteRoutes);
 // app.use(`${apiPrefix}/login`, authRoutes);
-// app.use(`${apiPrefix}/produtos`, produtoRoutes);
-// app.use(`${apiPrefix}/pedidos`, pedidoRoutes);
+ app.use(`${apiPrefix}/produtos`, produtoRoutes);
+ app.use(`${apiPrefix}/pedidos`, pedidoRoutes);
 
 //Tratamento de erros
 app.use((err, req, res, next) => {
