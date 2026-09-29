@@ -7,10 +7,11 @@ import path, { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 //Importa rotas que vão executar funcionalidades
-//import authRoutes from './routes/authRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 import clienteRoutes from './routes/clienteRoutes.js'
 import pedidoRoutes from './routes/pedidoRoutes.js'
 import produtoRoutes from './routes/produtoRoutes.js'
+import entregadorRoutes from './routes/entregadorRoutes.js'
 
 //Inicializa o servidor com uma variavel com a funcionalidade do express
 const app = express();
@@ -48,10 +49,10 @@ app.get('/', (req, res) => {
 const apiPrefix = '/api';
 
  app.use(`${apiPrefix}/clientes`, clienteRoutes);
-// app.use(`${apiPrefix}/login`, authRoutes);
+ app.use(`${apiPrefix}/login`, authRoutes);
  app.use(`${apiPrefix}/produtos`, produtoRoutes);
  app.use(`${apiPrefix}/pedidos`, pedidoRoutes);
-
+ app.use(`${apiPrefix}/entregadores`, entregadorRoutes);
 //Tratamento de erros
 app.use((err, req, res, next) => {
     console.error(err.stack);

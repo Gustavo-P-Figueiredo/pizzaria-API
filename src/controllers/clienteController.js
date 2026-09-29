@@ -46,7 +46,7 @@ export const adicionaUsuario = async (req, res) => {
             return res.status(409).json({ error: 'CPF já cadastrado.'});
         }
     res.status(500).json({ error: 'Erro ao adicionar cliente'})    
-    }
+    }0
 }
 
 export const atualizarUsuario = async(req, res) => {
